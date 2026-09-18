@@ -35,7 +35,35 @@
 
   <section class="panel panel--controls" aria-labelledby="controls-heading">
     <h2 id="controls-heading">Parámetros</h2>
-    <!-- controles se agregan en la siguiente etapa -->
+
+    <div class="control">
+      <label for="tech-select">Tecnología</label>
+      <select id="tech-select"></select>
+      <span class="control__value mono" id="tech-freq-value"></span>
+    </div>
+
+    <div class="control">
+      <label for="material-select">Material</label>
+      <select id="material-select"></select>
+    </div>
+
+    <div class="control">
+      <label for="param-slider" id="param-label">Grosor de muro (m)</label>
+      <input type="range" id="param-slider">
+      <span class="control__value mono" id="param-value"></span>
+    </div>
+
+    <div class="control">
+      <label for="distance-slider">Distancia a la torre (m)</label>
+      <input type="range" id="distance-slider" min="50" max="3000" step="10" value="500">
+      <span class="control__value mono" id="distance-value"></span>
+    </div>
+
+    <div class="control">
+      <label for="eirp-slider">EIRP asumido (dBm)</label>
+      <input type="range" id="eirp-slider" min="30" max="60" step="1" value="50">
+      <span class="control__value mono" id="eirp-value"></span>
+    </div>
   </section>
 
   <section class="panel panel--diagram" aria-labelledby="diagram-heading">

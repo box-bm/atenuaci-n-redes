@@ -180,6 +180,78 @@ h1, h2, h3 { font-family: var(--font-ui); margin: 0; }
 }
 
 /* ============================================================
+   Controls
+   ============================================================ */
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.15rem;
+}
+
+.control label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.control select {
+  background: var(--bg-inset);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.control select:focus,
+.control input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.control input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--border-strong);
+  border-radius: 2px;
+  outline: none;
+}
+
+.control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+  cursor: pointer;
+  border: 2px solid var(--bg-panel);
+}
+
+.control input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+  cursor: pointer;
+  border: 2px solid var(--bg-panel);
+}
+
+.control__value {
+  font-size: 0.8rem;
+  color: var(--accent);
+  align-self: flex-end;
+}
+
+/* ============================================================
    Footer
    ============================================================ */
 .app-footer {
