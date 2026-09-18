@@ -41,21 +41,7 @@ js/table.js        Tabla comparativa de las 5 tecnologías
 js/app.js          Estado, controles y orquestación de renders
 ```
 
-## Ejecutar localmente
-
-No requiere instalación ni dependencias. Basta con servir el directorio como
-archivos estáticos, por ejemplo:
-
-```bash
-python3 -m http.server 8000
-# abrir http://localhost:8000
-```
-
 ## Deploy
 
-Es un sitio 100% estático — no requiere configuración de build.
-
-- **Vercel**: importar el repo, framework preset "Other", sin build command,
-  output directory `.` (raíz).
-- **Netlify**: importar el repo, build command vacío, publish directory `.`.
-- **GitHub Pages**: activar Pages apuntando a la rama principal, directorio raíz.
+Cada push a `main` despliega automáticamente a GitHub Pages vía
+`.github/workflows/deploy-pages.yml`.
