@@ -463,6 +463,90 @@ h1, h2, h3 { font-family: var(--font-ui); margin: 0; }
 }
 
 /* ============================================================
+   Verdict panel
+   ============================================================ */
+.verdict-badge {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  margin-bottom: 1.1rem;
+}
+
+.verdict-badge__label {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.verdict-badge__value {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.verdict--blocked { background: var(--accent-glow); border-color: var(--accent); color: var(--accent); }
+.verdict--marginal { background: var(--warn-glow); border-color: var(--warn); color: var(--warn); }
+.verdict--leak { background: var(--danger-glow); border-color: var(--danger); color: var(--danger); }
+
+.verdict-scale {
+  position: relative;
+  display: flex;
+  height: 14px;
+  border-radius: 7px;
+  overflow: visible;
+  margin-bottom: 0.4rem;
+}
+
+.verdict-scale__zone { height: 100%; }
+.verdict-scale__zone:first-child { border-radius: 7px 0 0 7px; }
+.verdict-scale__zone:last-child { border-radius: 0 7px 7px 0; }
+.verdict-scale__zone--blocked { background: var(--accent-dim); }
+.verdict-scale__zone--marginal { background: var(--warn); }
+.verdict-scale__zone--leak { background: var(--danger); }
+
+.verdict-scale__marker {
+  position: absolute;
+  top: -4px;
+  width: 3px;
+  height: 22px;
+  background: var(--text);
+  box-shadow: 0 0 6px rgba(0,0,0,0.4);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.verdict-scale__ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: var(--text-faint);
+  margin-bottom: 1rem;
+}
+
+.verdict-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.verdict-legend__item { display: flex; align-items: center; gap: 0.5rem; }
+
+.verdict-legend__swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.verdict-legend__swatch--blocked { background: var(--accent-dim); }
+.verdict-legend__swatch--marginal { background: var(--warn); }
+.verdict-legend__swatch--leak { background: var(--danger); }
+
+/* ============================================================
    Footer
    ============================================================ */
 .app-footer {
