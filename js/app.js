@@ -5,9 +5,9 @@
 const state = {
   techId: TECHNOLOGIES[1].id, // 3G por defecto
   materialId: "concreto",
-  materialParam: 0.2, // metros (grosor) o metros (apertura, se ajusta según material)
-  distanceM: 500,
-  eirpDbm: 50,
+  materialParam: 0.3, // metros (grosor) o metros (apertura, se ajusta según material)
+  distanceM: 1200,
+  eirpDbm: 43,
 };
 
 const MATERIAL_PARAM_RANGES = {
