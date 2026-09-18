@@ -1,0 +1,205 @@
+/* ============================================================
+   Tema y variables — estética de instrumento RF (analizador de espectro)
+   ============================================================ */
+:root {
+  --bg: #0a0e14;
+  --bg-panel: #10151f;
+  --bg-panel-raised: #161c29;
+  --bg-inset: #0d1119;
+  --border: #232b3a;
+  --border-strong: #34405a;
+  --text: #d7dee8;
+  --text-dim: #8b96a8;
+  --text-faint: #5a6478;
+  --accent: #39ff9d;
+  --accent-dim: #1f9e64;
+  --accent-glow: rgba(57, 255, 157, 0.25);
+  --warn: #ffb020;
+  --warn-glow: rgba(255, 176, 32, 0.25);
+  --danger: #ff4d5e;
+  --danger-glow: rgba(255, 77, 94, 0.25);
+  --grid-line: rgba(57, 255, 157, 0.06);
+  --font-ui: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  --radius: 6px;
+  --shadow-panel: 0 1px 0 rgba(255, 255, 255, 0.02) inset, 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme="light"] {
+  --bg: #eef1f6;
+  --bg-panel: #ffffff;
+  --bg-panel-raised: #f7f9fc;
+  --bg-inset: #e7ebf2;
+  --border: #d4dae4;
+  --border-strong: #b7c0d1;
+  --text: #1a2233;
+  --text-dim: #4b5670;
+  --text-faint: #8791a6;
+  --accent: #0a8f52;
+  --accent-dim: #0a8f52;
+  --accent-glow: rgba(10, 143, 82, 0.15);
+  --warn: #b06600;
+  --warn-glow: rgba(176, 102, 0, 0.15);
+  --danger: #c62839;
+  --danger-glow: rgba(198, 40, 57, 0.15);
+  --grid-line: rgba(10, 143, 82, 0.08);
+  --shadow-panel: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 20px rgba(20, 30, 50, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  min-height: 100vh;
+}
+
+h1, h2, h3 { font-family: var(--font-ui); margin: 0; }
+
+.mono { font-family: var(--font-mono); }
+
+/* ============================================================
+   Header
+   ============================================================ */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg-panel) 0%, var(--bg) 100%);
+}
+
+.app-header__title { display: flex; align-items: center; gap: 0.9rem; }
+
+.app-header__logo {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--accent-glow);
+}
+
+.app-header h1 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.app-header__subtitle {
+  margin: 0.15rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+}
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-panel-raised);
+  color: var(--text);
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, color 0.15s;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ============================================================
+   Disclaimer banner
+   ============================================================ */
+.disclaimer-banner {
+  margin: 1rem 1.5rem 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--warn);
+  border-left-width: 4px;
+  border-radius: var(--radius);
+  background: var(--warn-glow);
+  color: var(--text);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+.disclaimer-banner strong { color: var(--warn); }
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-areas:
+    "controls diagram"
+    "controls wall"
+    "controls verdict"
+    "table table";
+  gap: 1rem;
+  padding: 1rem 1.5rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.panel--controls { grid-area: controls; }
+.panel--diagram { grid-area: diagram; }
+.panel--wall { grid-area: wall; }
+.panel--verdict { grid-area: verdict; }
+.panel--table { grid-area: table; }
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem 1.3rem;
+  box-shadow: var(--shadow-panel);
+}
+
+.panel h2 {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--text-dim);
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.app-footer {
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 0.75rem;
+  padding: 1rem 1.5rem 2rem;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "controls"
+      "diagram"
+      "wall"
+      "verdict"
+      "table";
+  }
+}
