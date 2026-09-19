@@ -459,11 +459,17 @@ h1, h2, h3 { font-family: var(--font-ui); margin: 0; }
   letter-spacing: 0.6px;
 }
 
-.wall-side-arrow {
-  color: var(--accent);
-  font-size: 1.2rem;
+.wall-side-icon {
+  display: flex;
+  color: var(--text-dim);
+  transition: color 0.15s, opacity 0.15s;
 }
-.wall-side-arrow--faded { opacity: 0.35; }
+
+.wall-side-icon--exterior { color: var(--accent); }
+
+.wall-side-icon--interior.verdict--blocked { color: var(--accent); }
+.wall-side-icon--interior.verdict--marginal { color: var(--warn); }
+.wall-side-icon--interior.verdict--leak { color: var(--danger); }
 
 .wall-block {
   position: relative;
