@@ -152,7 +152,7 @@ function update() {
   });
 
   if (typeof renderDiagram === "function") renderDiagram(scenario);
-  if (typeof renderWall === "function") renderWall(state, scenario);
+  if (typeof renderFloorplan === "function") renderFloorplan(state, scenario);
   if (typeof renderVerdict === "function") renderVerdict(scenario);
   if (typeof renderComparisonTable === "function") renderComparisonTable(state);
 }
