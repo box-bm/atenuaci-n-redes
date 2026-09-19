@@ -76,13 +76,14 @@ h1, h2, h3 { font-family: var(--font-ui); margin: 0; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
   padding: 1.1rem 1.5rem;
   border-bottom: 1px solid var(--border);
   background: linear-gradient(180deg, var(--bg-panel) 0%, var(--bg) 100%);
 }
 
-.app-header__title { display: flex; align-items: center; gap: 0.9rem; }
+.app-header__title { display: flex; align-items: center; gap: 0.9rem; min-width: 0; }
 
 .app-header__logo {
   font-family: var(--font-mono);
@@ -170,7 +171,7 @@ h1, h2, h3 { font-family: var(--font-ui); margin: 0; }
    ============================================================ */
 .layout {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 300px minmax(0, 1fr);
   grid-template-areas:
     "controls diagram"
     "controls wall"
@@ -189,6 +190,7 @@ h1, h2, h3 { font-family: var(--font-ui); margin: 0; }
 .panel--table { grid-area: table; }
 
 .panel {
+  min-width: 0;
   background: var(--bg-panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -226,6 +228,8 @@ h1, h2, h3 { font-family: var(--font-ui); margin: 0; }
 }
 
 .control select {
+  width: 100%;
+  min-width: 0;
   background: var(--bg-inset);
   color: var(--text);
   border: 1px solid var(--border-strong);
@@ -430,8 +434,9 @@ h1, h2, h3 { font-family: var(--font-ui); margin: 0; }
   border-left-color: var(--border-strong);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .signal-diagram { flex-direction: column; }
+  .stage { min-width: 0; }
   .stage__link { width: 100%; flex-direction: row; justify-content: space-between; padding: 0.4rem 0.5rem; }
   .stage__link-line { display: none; }
 }
