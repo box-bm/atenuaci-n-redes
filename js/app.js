@@ -173,6 +173,19 @@ function initThemeToggle() {
   });
 }
 
+function initGlossaryModal() {
+  const modal = document.getElementById("glossary-modal");
+  const openBtn = document.getElementById("glossary-toggle");
+  const closeBtn = document.getElementById("glossary-close");
+  if (!modal || !openBtn) return;
+
+  openBtn.addEventListener("click", () => modal.showModal());
+  closeBtn.addEventListener("click", () => modal.close());
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.close();
+  });
+}
+
 function init() {
   populateSelects();
   applyMaterialParamRange();
@@ -181,6 +194,7 @@ function init() {
   populatePresetButtons();
   bindEvents();
   initThemeToggle();
+  initGlossaryModal();
   update();
 }
 

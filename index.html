@@ -17,10 +17,53 @@
       <p class="app-header__subtitle">Blindaje de fachadas &mdash; modelo educativo de propagación RF</p>
     </div>
   </div>
-  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro">
-    <span id="theme-toggle-icon" aria-hidden="true">☾</span>
-  </button>
+  <div class="app-header__actions">
+    <button id="glossary-toggle" class="glossary-toggle" type="button">
+      <span aria-hidden="true">?</span> Glosario
+    </button>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro">
+      <span id="theme-toggle-icon" aria-hidden="true">☾</span>
+    </button>
+  </div>
 </header>
+
+<dialog id="glossary-modal" class="glossary-modal" aria-labelledby="glossary-title">
+  <div class="glossary-modal__header">
+    <h2 id="glossary-title">Glosario técnico</h2>
+    <button id="glossary-close" class="glossary-close" type="button" aria-label="Cerrar glosario">&times;</button>
+  </div>
+  <dl class="glossary-list">
+    <dt>MHz / GHz</dt>
+    <dd>Megahertz / Gigahertz: unidad de frecuencia de la onda de radio. A mayor frecuencia, menor longitud de onda (λ).</dd>
+
+    <dt>dB (decibel)</dt>
+    <dd>Unidad logarítmica que expresa una relación (ganancia o pérdida) entre dos potencias. Se usa para medir pérdidas de propagación y atenuación de materiales.</dd>
+
+    <dt>dBm</dt>
+    <dd>Potencia expresada en decibeles relativos a 1 milivatio (mW). Es la unidad usada para medir la potencia de la señal en cada etapa del trayecto.</dd>
+
+    <dt>EIRP</dt>
+    <dd>Potencia isotrópica radiada equivalente: la potencia que "ve" un receptor como si la torre irradiara de forma uniforme en todas direcciones. Es el punto de partida del cálculo.</dd>
+
+    <dt>FSPL (Free Space Path Loss)</dt>
+    <dd>Pérdida de propagación en espacio libre: la señal se debilita al viajar por el aire, en función de la distancia y la frecuencia. A mayor distancia o frecuencia, mayor pérdida.</dd>
+
+    <dt>λ (longitud de onda)</dt>
+    <dd>Distancia física entre dos crestas consecutivas de la onda. Se calcula como λ = velocidad de la luz / frecuencia. Determina qué tan fina debe ser una malla para bloquear esa frecuencia.</dd>
+
+    <dt>Atenuación del material</dt>
+    <dd>Pérdida adicional (en dB) que introduce el muro o la malla al atravesar la señal. En sólidos crece con el grosor; en mallas depende de la relación entre la apertura y la longitud de onda.</dd>
+
+    <dt>Coeficiente dB/m</dt>
+    <dd>Cuánto atenúa cada metro de espesor de un material sólido (ladrillo o concreto). Valores de referencia aproximados, mayores a mayor frecuencia.</dd>
+
+    <dt>Malla / jaula de Faraday</dt>
+    <dd>Rejilla metálica que actúa como filtro de guía de onda: bloquea mejor las frecuencias cuya longitud de onda es grande respecto a la apertura de la malla.</dd>
+
+    <dt>Umbral de bloqueo</dt>
+    <dd>Nivel de potencia interior (dBm) que define si la señal es utilizable. ≤ &minus;100 dBm: bloqueada. Entre &minus;100 y &minus;95 dBm: señal al límite. &gt; &minus;95 dBm: señal utilizable / riesgo de fuga.</dd>
+  </dl>
+</dialog>
 
 <main class="layout">
 
