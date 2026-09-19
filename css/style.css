@@ -125,7 +125,10 @@ h1, h2, h3 { font-family: var(--font-ui); margin: 0; }
    Disclaimer banner
    ============================================================ */
 .disclaimer-banner {
-  margin: 1rem 1.5rem 0;
+  box-sizing: border-box;
+  width: calc(100% - 3rem);
+  max-width: 1400px;
+  margin: 0 auto 1.5rem;
   padding: 0.75rem 1rem;
   border: 1px solid var(--warn);
   border-left-width: 4px;
