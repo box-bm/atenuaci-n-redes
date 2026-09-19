@@ -10,6 +10,25 @@ const state = {
   eirpDbm: 43,
 };
 
+const BLOCKING_PRESETS = [
+  {
+    id: "tight",
+    label: "Bloqueo mínimo",
+    materialId: "malla",
+    materialParam: 3,
+    distanceM: 1550,
+    eirpDbm: 30,
+  },
+  {
+    id: "robust",
+    label: "Bloqueo robusto",
+    materialId: "malla",
+    materialParam: 3,
+    distanceM: 3000,
+    eirpDbm: 30,
+  },
+];
+
 const MATERIAL_PARAM_RANGES = {
   ladrillo: { min: 0.1, max: 1.0, step: 0.01, unit: "m", label: "Grosor de muro (m)", default: 0.2 },
   concreto: { min: 0.1, max: 1.0, step: 0.01, unit: "m", label: "Grosor de muro (m)", default: 0.2 },
@@ -27,6 +46,7 @@ const els = {
   distanceValue: document.getElementById("distance-value"),
   eirpSlider: document.getElementById("eirp-slider"),
   eirpValue: document.getElementById("eirp-value"),
+  presetsButtons: document.getElementById("presets-buttons"),
 };
 
 function getCurrentTech() {
@@ -69,6 +89,31 @@ function syncControlLabels() {
   els.paramValue.textContent = `${state.materialParam.toFixed(range.unit === "m" ? 2 : 0)} ${range.unit}`;
   els.distanceValue.textContent = `${state.distanceM} m`;
   els.eirpValue.textContent = `${state.eirpDbm} dBm`;
+}
+
+function populatePresetButtons() {
+  els.presetsButtons.innerHTML = BLOCKING_PRESETS.map(
+    (p) => `<button type="button" class="preset-btn" data-preset-id="${p.id}">${p.label}</button>`
+  ).join("");
+  els.presetsButtons.querySelectorAll(".preset-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const preset = BLOCKING_PRESETS.find((p) => p.id === btn.dataset.presetId);
+      applyPreset(preset);
+    });
+  });
+}
+
+function applyPreset(preset) {
+  state.materialId = preset.materialId;
+  state.materialParam = preset.materialParam;
+  state.distanceM = preset.distanceM;
+  state.eirpDbm = preset.eirpDbm;
+
+  els.materialSelect.value = state.materialId;
+  applyMaterialParamRange();
+  els.distanceSlider.value = state.distanceM;
+  els.eirpSlider.value = state.eirpDbm;
+  update();
 }
 
 function bindEvents() {
@@ -133,6 +178,7 @@ function init() {
   applyMaterialParamRange();
   els.distanceSlider.value = state.distanceM;
   els.eirpSlider.value = state.eirpDbm;
+  populatePresetButtons();
   bindEvents();
   initThemeToggle();
   update();

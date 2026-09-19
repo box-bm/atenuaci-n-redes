@@ -255,6 +255,57 @@ h1, h2, h3 { font-family: var(--font-ui); margin: 0; }
 }
 
 /* ============================================================
+   Blocking presets
+   ============================================================ */
+.presets {
+  margin-top: 0.3rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-strong);
+}
+
+.presets__label {
+  margin: 0 0 0.6rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.presets__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.preset-btn {
+  flex: 1 1 auto;
+  padding: 0.5rem 0.7rem;
+  background: var(--bg-inset);
+  border: 1px solid var(--accent-dim);
+  color: var(--accent);
+  border-radius: var(--radius);
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+.preset-btn:hover {
+  background: var(--accent-glow);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.presets__hint {
+  margin: 0;
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  line-height: 1.4;
+}
+
+/* ============================================================
    Signal path diagram
    ============================================================ */
 .signal-diagram {
